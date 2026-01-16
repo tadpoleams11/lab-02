@@ -2,12 +2,14 @@ package com.example.listycity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -45,13 +47,24 @@ public class MainActivity extends AppCompatActivity {
 
         dataList = new ArrayList<>();
         dataList.addAll(Arrays.asList(cities));
-        //if the button removes something, remove it, if thr button adds, add
+
 
         cityAdapter = new ArrayAdapter<>(this, R.layout.content, dataList); //define the cityadapter
         cityList.setAdapter(cityAdapter); //set anf use the adapter
 
+        cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //these lines from stack overflow on Listview deletion
+                AlertDialog.Builder adb =new AlertDialog.Builder(MainActivity.this);
+                adb.setTitle("Delete?");
+                adb.setMessage("Are you sure you want to delete " + position);
+                dataList.remove(position);
+                cityAdapter.notifyDataSetChanged();
+            }
+        });
+
         addBtn = findViewById(R.id.add_btn);
-        delBtn = findViewById(R.id.del_btn);
         userIn = findViewById(R.id.user_in);
 
         addBtn.setOnClickListener(new View.OnClickListener() {
