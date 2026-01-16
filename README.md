@@ -2,12 +2,14 @@
 
 ## Student Details
 
-- **Full Name:** `<Enter name>`
-- **CCID:** `<Enter ccid>`
+- **Full Name:** `Terrence Adams`
+- **CCID:** `teadams`
 
 ## References and Resources
 
-List any resources used here, or simply put `N/A` if not applicable.
+Add Button resource: https://www.geeksforgeeks.org/android/how-to-dynamically-add-elements-to-a-listview-in-android/
+ListView add/delete basics video: https://youtu.be/loR1k63xvqA?si=yBZf7w8M53cT_P2w
+Understanding constraints: https://stackoverflow.com/questions/37817537/this-view-is-not-constrained
 
 ## Verbal Collaboration
 
